@@ -15,7 +15,7 @@ import org.bukkit.potion.PotionEffectType
 import kotlin.random.Random
 
 
-class MiningDeepslate(private val config: FileConfiguration): Listener {
+class MiningDeepslate(private val config: FileConfiguration) : Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     fun onMine(e: PlayerInteractEvent) {
@@ -32,17 +32,26 @@ class MiningDeepslate(private val config: FileConfiguration): Listener {
         val toolMeta = tool.itemMeta as Damageable
         if (toolMeta.enchants[Enchantment.DIG_SPEED] != 5) return
 
-        if ((e.player.getPotionEffect(PotionEffectType.FAST_DIGGING)?.amplifier ?: return) < 2) return
+        //Amplifier 1 means Haste II
+        if ((e.player.getPotionEffect(PotionEffectType.FAST_DIGGING)?.amplifier ?: return) < 1) return
+
+        val hasSilkTouch = toolMeta.hasEnchant(Enchantment.SILK_TOUCH)
 
         e.isCancelled = true
-        e.player.world.dropItemNaturally(e.interactionPoint!!, ItemStack(block.type))
+        e.player.world.dropItemNaturally(
+            block.location,
+            ItemStack(
+                if (hasSilkTouch) block.type else Material.COBBLED_DEEPSLATE
+            )
+        )
         block.type = Material.AIR
 
         //We cancelled the event, but we still need to decrease pickaxe durability.
-        val unbreakingLevel = tool.itemMeta.enchants[Enchantment.DURABILITY] ?: 0
+        val unbreakingLevel = toolMeta.enchants[Enchantment.DURABILITY] ?: 0
         if (Random.nextInt(unbreakingLevel + 1) == 0) {
-            toolMeta.damage -= 1
+            toolMeta.damage += 1
         }
+        tool.itemMeta = toolMeta
 
     }
 

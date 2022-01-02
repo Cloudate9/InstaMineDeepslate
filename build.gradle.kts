@@ -7,12 +7,11 @@ plugins {
 }
 
 group = "io.github.cloudon9.instaminedeepslate"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
     codemc()
-    jitpack()
     papermc()
 }
 
