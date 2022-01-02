@@ -32,7 +32,7 @@ class IMDCommand(private val config: FileConfiguration, private val plugin: Plug
 
         when (args[0].lowercase()) {
             "enable", "on", "true" -> config["pluginActive"] = true
-            "disable", "off", "false" -> config["pluginActive"] = true
+            "disable", "off", "false" -> config["pluginActive"] = false
             else -> {
                 sendConfigMessage(sender, "message.invalidArguments")
                 return true
