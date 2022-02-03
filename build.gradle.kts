@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.cloudon9.instaminedeepslate"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     compileOnly(paper("1.18.1"))
-    implementation(bStats("2.2.1"))
+    implementation(bStats("3.0.0"))
 }
 
 tasks {

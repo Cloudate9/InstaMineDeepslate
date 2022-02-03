@@ -45,6 +45,7 @@ class MiningDeepslate(private val config: FileConfiguration) : Listener {
             )
         )
         block.type = Material.AIR
+        e.player.playSound(e.location, Sound.BLOCK_DEEPSLATE_BREAK, 1.0f, 1.0f)
 
         //We cancelled the event, but we still need to decrease pickaxe durability.
         val unbreakingLevel = toolMeta.enchants[Enchantment.DURABILITY] ?: 0
