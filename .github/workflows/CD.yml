@@ -1,0 +1,27 @@
+name: Publish to CF
+on:
+  pull_request:
+    branches: [ master ]
+    types: [ closed ] #Does not tell us if it was merged or not.
+jobs:
+  publish:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: "Build with ShadowJar"
+        run: ./gradlew shadowJar
+      - name: "Upload to CurseForge"
+        uses: itsmeow/curseforge-upload@v3
+        with:
+          changelog: "You can find the changelog on IMD's [GitHub releases](https://github.com/CloudOn9/InstaMineDeepslate/releases)."
+          file_path: "build/libs/*.jar"
+          game_endpoint: "bukkit"
+          game_versions: "Bukkit 1.18:1.18.1"
+          project_id: "560705"
+          token: "${{ secrets.CF_API_TOKEN }}"
