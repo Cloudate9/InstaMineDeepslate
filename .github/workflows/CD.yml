@@ -19,6 +19,7 @@ jobs:
       - name: "Upload to CurseForge"
         uses: itsmeow/curseforge-upload@v3
         with:
+          changelog: "You can find the changelog on IMD's [GitHub releases](https://github.com/CloudOn9/InstaMineDeepslate/releases)."
           file_path: "build/libs/*.jar"
           game_endpoint: "bukkit"
           game_versions: "Bukkit 1.18:1.18.1"
