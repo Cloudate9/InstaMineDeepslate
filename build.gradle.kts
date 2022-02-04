@@ -16,8 +16,9 @@ repositories {
 }
 
 dependencies {
-    compileOnly(paper("1.18.1"))
-    implementation(bStats("3.0.0"))
+    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
+    implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
+    implementation("org.bstats:bstats-bukkit:3.0.0")
 }
 
 tasks {
