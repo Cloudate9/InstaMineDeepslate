@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.cloudon9.instaminedeepslate"
-version = "1.0.1"
+version = "2.0.0"
 
 repositories {
     mavenCentral()
@@ -16,8 +16,9 @@ repositories {
 }
 
 dependencies {
-    compileOnly(paper("1.18.1"))
-    implementation(bStats("2.2.1"))
+    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
+    implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
+    implementation("org.bstats:bstats-bukkit:3.0.0")
 }
 
 tasks {
@@ -58,6 +59,11 @@ spigot {
         create("instaminedeepslate.eligible") {
             description = "If someone is eligible to instantly break deepslate, given the right conditions."
             defaults = "true"
+        }
+
+        create("instaminedeepslate.updater") {
+            description = "If someone is allowed to see when the plugin has updates"
+            defaults = "op"
         }
 
     }

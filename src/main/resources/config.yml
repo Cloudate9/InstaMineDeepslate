@@ -1,8 +1,12 @@
-# Minecraft color codes are supported for messages! Use '&' instead of '§' (i.e. "&c" instead of "§c" for red).
+# IMD now uses MiniMessage (https://docs.adventure.kyori.net/minimessage). Minecraft colors are still supported.
 
 message:
-  invalidArguments: "&c[IMD] Correct usage format: /imd [enable/disable]"
-  noPermission: "&c[IMD] You do not have permission to toggle deepslate mining speed!"
-  success: "&a[IMG] Operation success!"
+  miniMessage:
+    invalidArguments: "<red>[IMD] Correct usage format: /imd [enable/disable]</red>"
+    noPermission: "<red>[IMD] You do not have permission to toggle deepslate mining speed!</red>"
+    success: "<green>[IMD] Operation success!</green>"
+    updateFound: "<gold>[IMD] An update can be found at 
+    https://www.curseforge.com/minecraft/bukkit-plugins/insta-mine-deepslate/ \n
+    If you don't see the update yet, come back in 24-48 hours. It should be ready by then.</gold>"
 updateCheck: true
 pluginActive: true
