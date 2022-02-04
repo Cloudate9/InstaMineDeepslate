@@ -15,6 +15,7 @@ class UpdateInformer(
 
     @EventHandler
     fun informUpdate(e: PlayerJoinEvent) {
+        if (!e.player.hasPermission("instaminedeepslate.updater")) return
         if (config.getBoolean("updateCheck") && plugin.updateFound) {
             e.player.sendMessage(
                 MiniMessage.get()

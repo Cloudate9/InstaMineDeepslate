@@ -61,5 +61,10 @@ spigot {
             defaults = "true"
         }
 
+        create("instaminedeepslate.updater") {
+            description = "If someone is allowed to see when the plugin has updates"
+            defaults = "op"
+        }
+
     }
 }
