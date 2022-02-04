@@ -1,4 +1,4 @@
-### 1.18 made it harder to clear large amounts of space by mining. Let us alleviate that pain a little.
+## 1.18 made it harder to clear large amounts of space by mining. Let us alleviate that pain a little.
 
 ###### Usage
 You will instantly mine Deepslate, so long as you are using an efficiency 5 Netherite pickaxe, and have haste II. This is similar to how mining stone with an efficiency 5 Diamond pickaxe with haste II is instant.  
