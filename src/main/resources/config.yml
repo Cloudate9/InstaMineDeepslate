@@ -2,8 +2,8 @@
 
 message:
   miniMessage:
-  invalidArguments: "<red>[IMD] Correct usage format: /imd [enable/disable]</red>"
-  noPermission: "<red>[IMD] You do not have permission to toggle deepslate mining speed!</red>"
-  success: "<green>[IMG] Operation success!</green>"
+    invalidArguments: "<red>[IMD] Correct usage format: /imd [enable/disable]</red>"
+    noPermission: "<red>[IMD] You do not have permission to toggle deepslate mining speed!</red>"
+    success: "<green>[IMD] Operation success!</green>"
 updateCheck: true
 pluginActive: true
