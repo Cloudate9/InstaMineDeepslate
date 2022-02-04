@@ -1,5 +1,7 @@
 package io.github.cloudon9.instaminedeepslate.listener
 
+import net.kyori.adventure.key.Key
+import net.kyori.adventure.sound.Sound
 import org.bukkit.GameMode
 import org.bukkit.Material
 import org.bukkit.configuration.file.FileConfiguration
@@ -44,8 +46,26 @@ class MiningDeepslate(private val config: FileConfiguration) : Listener {
                 if (hasSilkTouch) block.type else Material.COBBLED_DEEPSLATE
             )
         )
+
+        val sound = if (block.type.name.contains("polished"))
+            Sound.sound(
+                Key.key("block.polished_deepslate.break"), Sound.Source.BLOCK, 1f, 1f
+            )
+        else if (block.type.name.contains("tiles"))
+            Sound.sound(
+                Key.key("block.deepslate_tiles.break"), Sound.Source.BLOCK, 1f, 1f
+            )
+        else if (block.type.name.contains("bricks"))
+            Sound.sound(
+                Key.key("block.deepslate_bricks.break"), Sound.Source.BLOCK, 1f, 1f
+            )
+        else Sound.sound(
+            Key.key("block.deepslate.break"), Sound.Source.BLOCK, 1f, 1f
+        )
+
         block.type = Material.AIR
-        e.player.playSound(e.location, Sound.BLOCK_DEEPSLATE_BREAK, 1.0f, 1.0f)
+
+        e.player.playSound(sound, block.location.x, block.location.y, block.location.z)
 
         //We cancelled the event, but we still need to decrease pickaxe durability.
         val unbreakingLevel = toolMeta.enchants[Enchantment.DURABILITY] ?: 0
