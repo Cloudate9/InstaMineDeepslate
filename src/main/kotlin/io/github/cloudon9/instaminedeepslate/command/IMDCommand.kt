@@ -1,6 +1,6 @@
 package io.github.cloudon9.instaminedeepslate.command
 
-import org.bukkit.ChatColor
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -15,7 +15,7 @@ class IMDCommand(private val config: FileConfiguration, private val plugin: Plug
 
     private fun sendConfigMessage(receiver: CommandSender, key: String) {
         receiver.sendMessage(
-            ChatColor.translateAlternateColorCodes('&', config.getString(key)!!)
+            LegacyComponentSerializer.legacyAmpersand().deserialize(config.getString(key)!!)
         )
     }
 
@@ -39,7 +39,7 @@ class IMDCommand(private val config: FileConfiguration, private val plugin: Plug
             }
         }
 
-        config.options().copyHeader(true)
+        config.options().parseComments(true)
         plugin.saveConfig()
         sendConfigMessage(sender, "message.success")
         return true
