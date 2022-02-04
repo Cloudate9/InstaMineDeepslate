@@ -10,8 +10,7 @@ class InstaMineDeepslate: JavaPlugin() {
 
     override fun onEnable() {
 
-        config.options().copyDefaults(true)
-        config.options().parseComments(true)
+        config.options().copyDefaults(true).parseComments(true)
         saveConfig()
 
         Bukkit.getPluginManager().registerEvents(MiningDeepslate(config), this)
