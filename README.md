@@ -12,11 +12,14 @@ This plugin only has one command - `/instaminedeepslate [enable/disable]`. To sa
 permissions:
   instaminedeepslate.changespeed:
     description: "Change if deepslate can be broken immediately, given the right conditions."
-    default: "op"
+    default: op
   instaminedeepslate.eligible:
     description: "If someone is eligible to instantly break deepslate, given the right\
       \ conditions."
     default: "true"
+  instaminedeepslate.updater:
+    description: "If someone is allowed to see when the plugin has updates"
+    default: op
 ```
 
 ##### Installation
