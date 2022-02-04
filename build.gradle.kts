@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.cloudon9.instaminedeepslate"
-version = "1.0.2"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
