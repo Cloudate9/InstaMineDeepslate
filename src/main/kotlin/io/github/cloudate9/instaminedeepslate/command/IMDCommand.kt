@@ -1,4 +1,4 @@
-package io.github.cloudon9.instaminedeepslate.command
+package io.github.cloudate9.instaminedeepslate.command
 
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.command.Command

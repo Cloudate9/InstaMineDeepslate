@@ -1,8 +1,8 @@
-package io.github.cloudon9.instaminedeepslate
+package io.github.cloudate9.instaminedeepslate
 
-import io.github.cloudon9.instaminedeepslate.command.IMDCommand
-import io.github.cloudon9.instaminedeepslate.listener.MiningDeepslate
-import io.github.cloudon9.instaminedeepslate.listener.UpdateInformer
+import io.github.cloudate9.instaminedeepslate.command.IMDCommand
+import io.github.cloudate9.instaminedeepslate.listener.MiningDeepslate
+import io.github.cloudate9.instaminedeepslate.listener.UpdateInformer
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextColor
 import org.bstats.bukkit.Metrics
@@ -17,7 +17,7 @@ import java.util.*
 
 class InstaMineDeepslate : JavaPlugin() {
 
-    var updateFound = false; //Publically exposed
+    var updateFound = false //Publicly exposed
 
     override fun onEnable() {
 
@@ -41,7 +41,7 @@ class InstaMineDeepslate : JavaPlugin() {
                     val readGit = Scanner(
                         InputStreamReader(
                             URL(
-                                "https://raw.githubusercontent.com/CloudOn9/InstaMineDeepslate/master/build.gradle.kts"
+                                "https://raw.githubusercontent.com/Cloudate9/InstaMineDeepslate/master/build.gradle.kts"
                             ).openStream()
                         )
                     )
