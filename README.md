@@ -28,7 +28,7 @@ This plugin is targeted for [PaperMc](https://papermc.io) users.
 This plugin should still work on [Spigot](https://spigotmc.org), but no guarantee is given.
 
 ##### Enjoy this plugin? Check out some of these links
-My [GitHub](https://github.com/cloudon9/)
+My [GitHub](https://github.com/cloudate9/)
 My [Discord](https://discord.gg/nPbakm9eEr)
 
 This project is licensed under the GNU-GPLv3. You can learn more about it [here](https://choosealicense.com/licenses/gpl-3.0/)

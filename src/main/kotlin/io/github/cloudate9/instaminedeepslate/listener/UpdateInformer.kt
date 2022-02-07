@@ -1,6 +1,6 @@
-package io.github.cloudon9.instaminedeepslate.listener
+package io.github.cloudate9.instaminedeepslate.listener
 
-import io.github.cloudon9.instaminedeepslate.InstaMineDeepslate
+import io.github.cloudate9.instaminedeepslate.InstaMineDeepslate
 import net.kyori.adventure.text.event.ClickEvent
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.configuration.file.FileConfiguration

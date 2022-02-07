@@ -1,4 +1,4 @@
-package io.github.cloudon9.instaminedeepslate.listener
+package io.github.cloudate9.instaminedeepslate.listener
 
 import net.kyori.adventure.key.Key
 import net.kyori.adventure.sound.Sound
