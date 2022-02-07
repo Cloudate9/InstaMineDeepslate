@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
 import kr.entree.spigradle.kotlin.*
 
 plugins {
@@ -6,8 +7,8 @@ plugins {
     kotlin("jvm") version "1.6.10"
 }
 
-group = "io.github.cloudon9.instaminedeepslate"
-version = "2.0.0"
+group = "io.github.cloudate9.instaminedeepslate"
+version = "2.0.1"
 
 repositories {
     mavenCentral()
@@ -30,19 +31,24 @@ tasks {
         options.release.set(17)
     }
 
+    create<ConfigureShadowRelocation>("relocateShadowJar") {
+        target = shadowJar.get()
+        prefix = "${rootProject.group}.dependencies"
+    }
+
     shadowJar {
         archiveFileName.set(rootProject.name + "-" + rootProject.version + ".jar")
-
-        relocate("org.bstats", "io.github.cloudon9.instaminedeepslate.dependencies")
         minimize()
+
+        dependsOn(get("relocateShadowJar"))
     }
 }
 
 spigot {
-    authors = listOf("CloudOn9")
+    authors = listOf("Cloudate9")
     apiVersion = "1.18"
     description = "Makes mining deepslate with a Netherite pickaxe, eff 5 and haste II instant."
-    website = "https://cloudon9.github.io/"
+    website = "https://cloudate9.github.io/"
     commands {
         create("instaminedeepslate") {
             aliases = listOf("imd", "imds")
