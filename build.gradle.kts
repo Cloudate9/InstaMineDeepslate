@@ -1,14 +1,13 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
 import kr.entree.spigradle.kotlin.*
 
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("kr.entree.spigradle") version "2.3.4"
+    id("kr.entree.spigradle") version "2.2.4"
     kotlin("jvm") version "1.6.10"
 }
 
 group = "io.github.cloudate9.instaminedeepslate"
-version = "2.0.1"
+version = "2.0.2"
 
 repositories {
     mavenCentral()
@@ -31,16 +30,12 @@ tasks {
         options.release.set(17)
     }
 
-    create<ConfigureShadowRelocation>("relocateShadowJar") {
-        target = shadowJar.get()
-        prefix = "${rootProject.group}.dependencies"
-    }
-
     shadowJar {
         archiveFileName.set(rootProject.name + "-" + rootProject.version + ".jar")
-        minimize()
-
-        dependsOn(get("relocateShadowJar"))
+        relocate("kotlin", "${rootProject.group}.dependencies.kotlin")
+        relocate("org.bstats", "${rootProject.group}.dependencies.org.bstats")
+        relocate("org.intellij", "${rootProject.group}.dependencies.org.intellij")
+        relocate("org.jetbrains", "${rootProject.group}.dependencies.org.jetbrains")
     }
 }
 
