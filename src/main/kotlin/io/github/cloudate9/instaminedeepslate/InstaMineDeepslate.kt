@@ -5,6 +5,7 @@ import io.github.cloudate9.instaminedeepslate.listener.MiningDeepslate
 import io.github.cloudate9.instaminedeepslate.listener.UpdateInformer
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextColor
+import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
@@ -17,17 +18,18 @@ import java.util.*
 
 class InstaMineDeepslate : JavaPlugin() {
 
+    val miniMessage = MiniMessage.get()
     var updateFound = false //Publicly exposed
 
     override fun onEnable() {
 
-        config.options().copyDefaults(true).parseComments(true)
+        config.options().copyDefaults(true).copyHeader(true)
         saveConfig()
 
         val pluginManager = Bukkit.getPluginManager()
         pluginManager.registerEvents(MiningDeepslate(config), this)
-        pluginManager.registerEvents(UpdateInformer(config, this), this)
-        getCommand("instaminedeepslate")!!.setExecutor(IMDCommand(config, this))
+        pluginManager.registerEvents(UpdateInformer(config, miniMessage, this), this)
+        getCommand("instaminedeepslate")!!.setExecutor(IMDCommand(config, miniMessage, this))
 
         Metrics(this, 13733)
         updateCheck(this, true)
@@ -70,6 +72,8 @@ class InstaMineDeepslate : JavaPlugin() {
                         )
                         return
                     }
+
+                    updateFound = true
 
                     logger.info(
                         Component.text(
