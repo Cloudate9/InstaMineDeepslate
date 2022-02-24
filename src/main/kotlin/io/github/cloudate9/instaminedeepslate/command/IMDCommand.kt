@@ -10,13 +10,17 @@ import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
 import org.bukkit.util.StringUtil
 
-class IMDCommand(private val config: FileConfiguration, private val plugin: Plugin) : CommandExecutor, TabExecutor {
+class IMDCommand(
+    private val config: FileConfiguration,
+    private val miniMessage: MiniMessage,
+    private val plugin: Plugin
+) : CommandExecutor, TabExecutor {
 
 
     override fun onCommand(sender: CommandSender, command: Command, alias: String, args: Array<out String>): Boolean {
         if (sender is Player && !sender.hasPermission("instaminedeepslate.changespeed")) {
             sender.sendMessage(
-                MiniMessage.get().parse(
+                miniMessage.parse(
                     config.getString("message.miniMessage.noPermission")!!
                 )
             )
@@ -25,7 +29,7 @@ class IMDCommand(private val config: FileConfiguration, private val plugin: Plug
 
         if (args.isEmpty()) {
             sender.sendMessage(
-                MiniMessage.get().parse(
+                miniMessage.parse(
                     config.getString("message.miniMessage.invalidArguments")!!
                 )
             )
@@ -37,7 +41,7 @@ class IMDCommand(private val config: FileConfiguration, private val plugin: Plug
             "disable", "off", "false" -> config["pluginActive"] = false
             else -> {
                 sender.sendMessage(
-                    MiniMessage.get().parse(
+                    miniMessage.parse(
                         config.getString("message.miniMessage.invalidArguments")!!
                     )
                 )
@@ -45,10 +49,10 @@ class IMDCommand(private val config: FileConfiguration, private val plugin: Plug
             }
         }
 
-        config.options().parseComments(true)
+        config.options().copyHeader(true)
         plugin.saveConfig()
         sender.sendMessage(
-            MiniMessage.get().parse(
+            miniMessage.parse(
                 config.getString("message.miniMessage.success")!!
             )
         )

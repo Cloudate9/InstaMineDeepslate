@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerJoinEvent
 
 class UpdateInformer(
     private val config: FileConfiguration,
+    private val miniMessage: MiniMessage,
     private val plugin: InstaMineDeepslate
 ) : Listener {
 
@@ -18,7 +19,7 @@ class UpdateInformer(
         if (!e.player.hasPermission("instaminedeepslate.updater")) return
         if (config.getBoolean("updateCheck") && plugin.updateFound) {
             e.player.sendMessage(
-                MiniMessage.get()
+                miniMessage
                     .parse(config.getString("message.miniMessage.updateFound")!!)
                     .clickEvent(
                         ClickEvent.openUrl(
