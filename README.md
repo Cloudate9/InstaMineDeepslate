@@ -10,7 +10,7 @@ This plugin only has one command - `/instaminedeepslate [enable/disable]`. To sa
 ##### Permissions
 ```yaml
 permissions:
-  instaminedeepslate.changespeed:
+  instaminedeepslate.configure:
     description: "Change if deepslate can be broken immediately, given the right conditions."
     default: op
   instaminedeepslate.eligible:
