@@ -18,12 +18,12 @@ import java.util.*
 
 class InstaMineDeepslate : JavaPlugin() {
 
-    val miniMessage = MiniMessage.get()
     var updateFound = false //Publicly exposed
 
     override fun onEnable() {
 
-        config.options().copyDefaults(true).copyHeader(true)
+        val miniMessage = MiniMessage.miniMessage()
+        config.options().copyDefaults(true).parseComments()
         saveConfig()
 
         val pluginManager = Bukkit.getPluginManager()

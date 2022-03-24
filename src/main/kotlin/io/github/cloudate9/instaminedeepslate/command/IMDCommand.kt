@@ -18,9 +18,9 @@ class IMDCommand(
 
 
     override fun onCommand(sender: CommandSender, command: Command, alias: String, args: Array<out String>): Boolean {
-        if (sender is Player && !sender.hasPermission("instaminedeepslate.changespeed")) {
+        if (sender is Player && !sender.hasPermission("instaminedeepslate.configure")) {
             sender.sendMessage(
-                miniMessage.parse(
+                miniMessage.deserialize(
                     config.getString("message.miniMessage.noPermission")!!
                 )
             )
@@ -29,7 +29,7 @@ class IMDCommand(
 
         if (args.isEmpty()) {
             sender.sendMessage(
-                miniMessage.parse(
+                miniMessage.deserialize(
                     config.getString("message.miniMessage.invalidArguments")!!
                 )
             )
@@ -41,7 +41,7 @@ class IMDCommand(
             "disable", "off", "false" -> config["pluginActive"] = false
             else -> {
                 sender.sendMessage(
-                    miniMessage.parse(
+                    miniMessage.deserialize(
                         config.getString("message.miniMessage.invalidArguments")!!
                     )
                 )
@@ -49,10 +49,10 @@ class IMDCommand(
             }
         }
 
-        config.options().copyHeader(true)
+        config.options().parseComments()
         plugin.saveConfig()
         sender.sendMessage(
-            miniMessage.parse(
+            miniMessage.deserialize(
                 config.getString("message.miniMessage.success")!!
             )
         )
@@ -66,7 +66,7 @@ class IMDCommand(
         args: Array<out String>
     ): MutableList<String>? {
 
-        if (sender is Player && !sender.hasPermission("instaminedeepslate.changespeed")) return null
+        if (sender is Player && !sender.hasPermission("instaminedeepslate.configure")) return null
         if (args.size == 1)
             return StringUtil.copyPartialMatches(args[0], listOf("enable", "disable"), ArrayList())
 

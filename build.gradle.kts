@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.cloudate9.instaminedeepslate"
-version = "2.0.3"
+version = "2.1.0"
 
 repositories {
     mavenCentral()
@@ -16,8 +16,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
-    implementation("net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.0.0")
 }
 
@@ -52,8 +51,8 @@ spigot {
         }
     }
     permissions {
-        create("instaminedeepslate.changespeed") {
-            description = "Change if deepslate can be broken immediately, given the right conditions."
+        create("instaminedeepslate.configure") {
+            description = "Configure IMD settings, such as if deepslate can be broken immediately, given the right conditions."
             defaults = "op"
         }
 
