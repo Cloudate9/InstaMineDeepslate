@@ -20,7 +20,7 @@ class UpdateInformer(
         if (config.getBoolean("updateCheck") && plugin.updateFound) {
             e.player.sendMessage(
                 miniMessage
-                    .parse(config.getString("message.miniMessage.updateFound")!!)
+                    .deserialize(config.getString("message.miniMessage.updateFound")!!)
                     .clickEvent(
                         ClickEvent.openUrl(
                             "https://www.curseforge.com/minecraft/bukkit-plugins/insta-mine-deepslate/"
