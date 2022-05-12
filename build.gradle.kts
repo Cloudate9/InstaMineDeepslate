@@ -2,7 +2,7 @@ import kr.entree.spigradle.kotlin.*
 
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("kr.entree.spigradle") version "2.2.4"
+    id("kr.entree.spigradle") version "2.4.2"
     kotlin("jvm") version "1.6.21"
 }
 
@@ -43,6 +43,7 @@ spigot {
     apiVersion = "1.18"
     description = "Makes mining deepslate with a Netherite pickaxe, eff 5 and haste II instant."
     website = "https://cloudate9.github.io/"
+    excludeLibraries = listOf("*")
     commands {
         create("instaminedeepslate") {
             aliases = listOf("imd", "imds")
