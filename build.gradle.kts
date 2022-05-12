@@ -43,6 +43,7 @@ spigot {
     apiVersion = "1.18"
     description = "Makes mining deepslate with a Netherite pickaxe, eff 5 and haste II instant."
     website = "https://cloudate9.github.io/"
+    excludeLibraries = listOf("*")
     commands {
         create("instaminedeepslate") {
             aliases = listOf("imd", "imds")
