@@ -3,7 +3,7 @@ import kr.entree.spigradle.kotlin.*
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("kr.entree.spigradle") version "2.4.2"
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.7.0"
 }
 
 group = "io.github.cloudate9.instaminedeepslate"
