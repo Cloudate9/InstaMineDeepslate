@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
-    implementation("org.bstats:bstats-bukkit:3.0.0")
+    implementation("org.bstats:bstats-bukkit:3.0.1")
 }
 
 tasks {
